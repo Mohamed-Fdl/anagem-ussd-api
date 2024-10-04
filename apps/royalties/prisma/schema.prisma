@@ -1,0 +1,21 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Royalty {
+  amount      Int?
+  createdAt   DateTime @default(now())
+  id          String   @id @default(cuid())
+  isPaid      Boolean
+  market      String
+  merchant    String
+  npi         String
+  phoneNumber String
+  store       String
+  updatedAt   DateTime @updatedAt
+}
